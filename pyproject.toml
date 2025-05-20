@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "riskbench-suite"
-version = "0.1.0"
+version = "0.1.1"
 description = "A comprehensive toolkit for end-to-end risk-aware benchmarking of autonomous agents"
 authors = ["Ansh Tiwari <ansh@caltech.edu>", "Ayush Chauhan <ayush@example.com>"]
 license = "MIT"
