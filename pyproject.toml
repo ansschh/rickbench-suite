@@ -5,9 +5,23 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "riskbench-suite"
 version = "0.1.0"
-description = "RiskBench Suite core libraries and CLI"
+description = "A comprehensive toolkit for end-to-end risk-aware benchmarking of autonomous agents"
 authors = ["Ansh Tiwari <ansh@caltech.edu>"]
-license = "Apache-2.0"
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/ansschh/riskbench-suite"
+repository = "https://github.com/ansschh/riskbench-suite"
+documentation = "https://github.com/ansschh/riskbench-suite/tree/main/docs"
+keywords = ["risk", "benchmark", "autonomous-agents", "testing", "monitoring"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Testing"
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
