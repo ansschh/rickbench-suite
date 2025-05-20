@@ -3,6 +3,7 @@ import os
 import sys
 import json
 import click
+import uvicorn
 from riskbench_core.taskspec import TaskSpec, InitState, Evaluation, SuccessIf
 from riskbench_core.plugins import get_envs, get_agents, get_monitors
 from riskbench_core.riskmetrics import RiskReport
@@ -290,6 +291,22 @@ def metrics_command(logs_pattern, alpha, out_file, plot_file):
         report.plot_tradeoff(output_path=plot_file)
         click.secho(f"✔ Plot saved to {plot_file}", fg="green")
 
+
+@cli.command("dashboard")
+@click.option("--logs", "-l", "logs_dir", required=True,
+              type=click.Path(exists=True, file_okay=False),
+              help="Directory of JSONL logs.")
+@click.option("--host", default="127.0.0.1", show_default=True,
+              help="Host for the dashboard server.")
+@click.option("--port", default=8000, show_default=True, type=int,
+              help="Port for the dashboard server.")
+def dashboard_command(logs_dir, host, port):
+    """
+    Launch the interactive RiskDash web UI.
+    """
+    os.environ["RISKBENCH_LOGS_DIR"] = logs_dir
+    click.echo(f"🚀 Starting dashboard at http://{host}:{port}")
+    uvicorn.run("riskbench_core.dashboard:app", host=host, port=port, log_level="info")
 
 def main():
     cli()
